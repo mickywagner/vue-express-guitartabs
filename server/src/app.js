@@ -8,9 +8,12 @@ app.use(morgan('combine'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get("/", (req, res) => {
-    res.json({server: 'is running'})
+app.get("/status", (req, res) => {
+    res.send({
+        message: "hello world!"
+    })
 })
+
 app.listen(process.env.PORT || 8081, () => console.log(
     'Server is running on port 8081'
 ))
