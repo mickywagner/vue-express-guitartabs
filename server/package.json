@@ -17,7 +17,8 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "sequelize": "^6.3.3",
-    "sqlite": "^4.0.12"
+    "sqlite": "^4.0.12",
+    "sqlite3": "^5.0.0"
   },
   "devDependencies": {
     "eslint": "^7.5.0",
