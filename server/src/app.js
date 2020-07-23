@@ -11,7 +11,7 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-require('./routes')
+require('./routes')(app)
 
 sequelize.sync().then(() => {
     app.listen(config.port || 8081, () => console.log(
