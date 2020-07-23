@@ -1,26 +1,38 @@
 <template>
-  <div>
-    <h1>Register</h1>
-    <div v-html="error" class="error"/>
-    <br>
-    <input
-      type="email"
-      name="email"
-      v-model="email"
-      placeholder="email" />
-    <br>
-    <input
-      type="password"
-      name="password"
-      v-model="password"
-      placeholder="password" />
-    <br>
-    <br>
-    <button
-      @click="register">
-      Register
-    </button>
-  </div>
+  <v-layout>
+    <v-flex xs6 offset-xs3>
+      <div class="white elevation-2">
+        <v-toolbar dense dark color="cyan">
+          <v-toolbar-title>
+            Register
+          </v-toolbar-title>
+        </v-toolbar>
+
+        <div class="pl-4 pr-4 pt-2 pb-2">
+          <div v-html="error" class="error" />
+          <br />
+            <input
+              type="email"
+              name="email"
+              v-model="email"
+              placeholder="email"
+            />
+            <br />
+            <input
+              type="password"
+              name="password"
+              v-model="password"
+              placeholder="password"
+            />
+          <br />
+          <br />
+          <v-btn dark color="indigo" @click="register">
+            Register
+          </v-btn>
+        </div>
+      </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -46,14 +58,13 @@ export default {
       }
     }
   }
-
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {
@@ -66,10 +77,6 @@ li {
 }
 a {
   color: #42b983;
-}
-
-.error {
-  color: red;
 }
 
 </style>
