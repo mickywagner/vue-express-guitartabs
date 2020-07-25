@@ -26,7 +26,7 @@
             />
           <br />
           <br />
-          <v-btn dark color="indigo" @click="register">
+          <v-btn dark color="cyan" @click="register">
             Register
           </v-btn>
         </div>
