@@ -11,19 +11,17 @@
         <div class="pl-4 pr-4 pt-2 pb-2">
           <div v-html="error" class="error" />
           <br />
-            <input
+            <v-text-field
               type="email"
-              name="email"
+              label="email"
               v-model="email"
-              placeholder="email"
-            />
+            ></v-text-field>
             <br />
-            <input
+            <v-text-field
               type="password"
-              name="password"
+              label="password"
               v-model="password"
-              placeholder="password"
-            />
+            ></v-text-field>
           <br />
           <br />
           <v-btn dark color="cyan" @click="register">
@@ -41,8 +39,8 @@ export default {
   name: 'Register',
   data () {
     return {
-      email: 'testing@gmail.com',
-      password: '123',
+      email: '',
+      password: '',
       error: null
     }
   },
