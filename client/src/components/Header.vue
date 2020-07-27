@@ -1,11 +1,12 @@
 <template>
     <v-toolbar dark fixed class="cyan">
-        <router-link to="/">
-            <v-toolbar-title class="mr-4">
+            <v-toolbar-title class="mr-4"
+            ><span @click="navigateTo({name: 'home'})"
+                class="logo"
+            >
                 TabTracker
+            </span>
             </v-toolbar-title>
-        </router-link>
-
         <!-- <v-toolbar-items>
             <v-btn flat dark>
                 Browse
@@ -13,18 +14,23 @@
         </v-toolbar-items> -->
         <v-spacer></v-spacer>
         <v-toolbar-itmes>
-                <router-link to="register">
-                    <v-btn text>
+                    <v-btn text
+                        @click="navigateTo({name: 'register'})"
+                    >
                         Sign Up
                     </v-btn>
-                </router-link>
         </v-toolbar-itmes>
     </v-toolbar>
 </template>
 
 <script>
 export default {
-  name: 'PageHeader'
+  name: 'PageHeader',
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  }
 }
 
 </script>
@@ -32,5 +38,13 @@ export default {
 <style scoped>
 header {
     max-height: 50px;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo:hover {
+    color: #006064;
 }
 </style>
