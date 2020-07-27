@@ -15,6 +15,13 @@
         <v-spacer></v-spacer>
         <v-toolbar-itmes>
                     <v-btn text
+                        @click="navigateTo({name: 'login'})"
+                    >
+                        Login
+                    </v-btn>
+        </v-toolbar-itmes>
+        <v-toolbar-itmes>
+                    <v-btn text
                         @click="navigateTo({name: 'register'})"
                     >
                         Sign Up
