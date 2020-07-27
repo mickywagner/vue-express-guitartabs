@@ -13,20 +13,20 @@
             </v-btn>
         </v-toolbar-items> -->
         <v-spacer></v-spacer>
-        <v-toolbar-itmes>
+        <v-toolbar-items>
                     <v-btn text
                         @click="navigateTo({name: 'login'})"
                     >
                         Login
                     </v-btn>
-        </v-toolbar-itmes>
-        <v-toolbar-itmes>
+        </v-toolbar-items>
+        <v-toolbar-items>
                     <v-btn text
                         @click="navigateTo({name: 'register'})"
                     >
                         Sign Up
                     </v-btn>
-        </v-toolbar-itmes>
+        </v-toolbar-items>
     </v-toolbar>
 </template>
 

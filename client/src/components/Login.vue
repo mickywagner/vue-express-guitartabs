@@ -25,7 +25,7 @@
             ></v-text-field>
           <br />
           <br />
-          <v-btn dark color="cyan" @click="register">
+          <v-btn dark color="cyan" @click="login">
             Login
           </v-btn>
         </div>
@@ -36,8 +36,29 @@
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
+
 export default {
-  name: 'Login'
+  name: 'Login',
+  data () {
+    return {
+      email: '',
+      password: '',
+      error: null
+    }
+  },
+  methods: {
+    async login () {
+      try {
+        await AuthenticationService.login({
+          email: this.email,
+          password: this.password
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
+    }
+  }
 }
 </script>
 
