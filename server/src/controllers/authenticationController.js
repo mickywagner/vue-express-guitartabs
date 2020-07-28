@@ -16,7 +16,10 @@ module.exports = {
             const { email, password } = req.body
             bcrypt.hash(password, 10, async function(err, hasedPassword) {
                 const user = await User.create({email: email, password: hasedPassword})
-                res.send(user.toJSON())
+                res.send({
+                    user: user.toJSON(),
+                    token: jwtSignUser(userJson)
+                })
             })
             
         } catch (err) {
@@ -40,6 +43,7 @@ module.exports = {
                     error: 'The login information was incorrect'
                 })
             }
+            
             const isPasswordValid = bcrypt.compare(password, user.password)
 
             if (!isPasswordValid) {
