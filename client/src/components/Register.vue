@@ -11,22 +11,26 @@
         <div class="pl-4 pr-4 pt-2 pb-2">
           <div v-html="error" class="error" />
           <br />
+          <form>
             <v-text-field
               type="email"
               label="email"
               v-model="email"
+              auto-complete="off"
             ></v-text-field>
             <br />
             <v-text-field
               type="password"
               label="password"
               v-model="password"
+              auto-complete="new-password"
             ></v-text-field>
-          <br />
-          <br />
-          <v-btn dark color="cyan" @click="register">
-            Register
-          </v-btn>
+            <br />
+            <br />
+            <v-btn dark color="cyan" @click="register">
+              Register
+            </v-btn>
+          </form>
         </div>
       </div>
     </v-flex>

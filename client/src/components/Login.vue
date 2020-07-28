@@ -12,6 +12,7 @@
         <div class="pl-4 pr-4 pt-2 pb-2">
           <div v-html="error" class="error" />
           <br />
+          <form>
             <v-text-field
               type="email"
               label="email"
@@ -23,11 +24,12 @@
               label="password"
               v-model="password"
             ></v-text-field>
-          <br />
-          <br />
-          <v-btn dark color="cyan" @click="login">
-            Login
-          </v-btn>
+            <br />
+            <br />
+            <v-btn dark color="cyan" @click="login">
+              Login
+            </v-btn>
+          </form>
         </div>
       </div>
     </v-flex>
