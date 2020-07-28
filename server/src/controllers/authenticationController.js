@@ -1,7 +1,6 @@
 const {User} = require('../models')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
-const bcrypt = require('bcryptjs')
 
 function jwtSignUser (user) {
     const ONE_WEEK = 60 * 60 * 24 * 7
@@ -13,13 +12,11 @@ function jwtSignUser (user) {
 module.exports = {
     async register (req, res) {
         try {
-            const { email, password } = req.body
-            bcrypt.hash(password, 10, async function(err, hasedPassword) {
-                const user = await User.create({email: email, password: hasedPassword})
-                res.send({
-                    user: user.toJSON(),
-                    token: jwtSignUser(userJson)
-                })
+            const user = await User.create(req.body)
+            const userJson = user.toJSON()
+            res.send({
+                user: userJson,
+                token: jwtSignUser(userJson)
             })
             
         } catch (err) {
@@ -44,7 +41,7 @@ module.exports = {
                 })
             }
             
-            const isPasswordValid = bcrypt.compare(password, user.password)
+            const isPasswordValid = user.comparePassword(password)
 
             if (!isPasswordValid) {
                 return res.status(403).send({
