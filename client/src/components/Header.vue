@@ -13,18 +13,27 @@
             </v-btn>
         </v-toolbar-items> -->
         <v-spacer></v-spacer>
-        <v-toolbar-items>
-                    <v-btn text
-                        @click="navigateTo({name: 'login'})"
+        <v-toolbar-items
+        >
+                    <v-btn text to="/login"
+                        v-if="!$store.state.isUserLoggedIn"
                     >
                         Login
                     </v-btn>
         </v-toolbar-items>
         <v-toolbar-items>
-                    <v-btn text
-                        @click="navigateTo({name: 'register'})"
+                    <v-btn text to="/register"
+                        v-if="!$store.state.isUserLoggedIn"
                     >
                         Sign Up
+                    </v-btn>
+        </v-toolbar-items>
+        <v-toolbar-items>
+                    <v-btn text to="/"
+                        v-if="$store.state.isUserLoggedIn"
+                        @click="logout"
+                    >
+                        Logout
                     </v-btn>
         </v-toolbar-items>
     </v-toolbar>
@@ -34,8 +43,8 @@
 export default {
   name: 'PageHeader',
   methods: {
-    navigateTo (route) {
-      this.$router.push(route)
+    logout () {
+      this.$store.dispatch('logOut')
     }
   }
 }
