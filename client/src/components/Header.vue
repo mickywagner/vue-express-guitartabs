@@ -7,12 +7,12 @@
                 TabTracker
             </span>
             </v-toolbar-title>
-        <v-spacer></v-spacer>
         <v-toolbar-items>
             <v-btn text to="/songs">
                 Browse
             </v-btn>
         </v-toolbar-items>
+        <v-spacer></v-spacer>
         <v-toolbar-items
         >
                     <v-btn text to="/login"
