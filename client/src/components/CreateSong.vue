@@ -30,7 +30,7 @@
                     required
                     :rules="[required]"
                     label="Album Image URL"
-                    v-model="song.albumImageUrl"
+                    v-model="song.albumImage"
                     ></v-text-field>
                     <v-text-field
                     required
@@ -59,9 +59,9 @@
                     >
                     </v-textarea>
                 </Panel>
-                <span class="error" v-if="error">
+                <div class="danger-alert" v-if="error">
                   {{ error }}
-                </span>
+                </div>
                 <v-btn dark color="cyan" @click="createSong">
                     Create Song
                 </v-btn>
@@ -83,7 +83,7 @@ export default {
         artist: null,
         genre: null,
         album: null,
-        albumImageUrl: null,
+        albumImage: null,
         youtubeId: null,
         lyrics: null,
         tab: null
@@ -102,6 +102,7 @@ export default {
         return
       }
       try {
+        console.log(this.song)
         await SongService.post(this.song)
         this.$router.push({ name: 'songs' })
       } catch (err) {
@@ -116,5 +117,7 @@ export default {
 </script>
 
 <style scoped>
-
+.danger-alert {
+  color: red;
+}
 </style>

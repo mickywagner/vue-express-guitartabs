@@ -15,11 +15,23 @@
                 </v-icon>
             </v-btn>
           <div v-for="song in songs"
-            :key="songs.id">
-            {{song.title}} -
-            {{song.album}} -
-            {{song.artist}}
-          </div>    
+            :key="songs.title">
+
+            <v-layout class="song">
+                <v-flex xs6>
+                  <div class="song-title">{{song.title}}
+                  </div>
+                  <div class="song-artist">{{song.artist}}
+                  </div>
+                  <div class="song-genre">{{song.genre}}
+                  </div>
+                </v-flex>
+
+                <v-flex xs6>
+                  <img class="album-image" :src="song.albumImage" style="width: 100%" alt="Ablum Art">
+                </v-flex>
+            </v-layout>
+          </div>
       </Panel>
     </v-flex>
   </v-layout>
@@ -41,10 +53,32 @@ export default {
   },
   async mounted () {
     this.songs = (await SongService.index()).data
+    console.log(this.songs)
   }
 }
 
 </script>
 
 <style scoped>
+.song {
+  padding: 20px;
+  height: 330px;
+  overflow: hidden;
+}
+
+.album-image {
+  margin-left: 20px;
+}
+
+.song-title {
+  font-size: 30px;
+}
+
+.song-artist {
+  font-size: 24px;
+}
+
+.song-genre {
+  font-size: 18px;
+}
 </style>
