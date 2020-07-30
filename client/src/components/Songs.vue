@@ -7,9 +7,11 @@
             {{song.title}} -
             {{song.album}} -
             {{song.artist}}
-
-          </div>
+          </div>     
       </Panel>
+        <v-btn to="/songs/create">
+            Create New Song
+        </v-btn>
     </v-flex>
   </v-layout>
 </template>
