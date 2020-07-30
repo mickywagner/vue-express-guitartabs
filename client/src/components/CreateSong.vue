@@ -7,32 +7,32 @@
                     <v-text-field
                     type="text"
                     label="Title"
-                    v-model="title"
+                    v-model="song.title"
                     ></v-text-field>
                     <v-text-field
                     type="text"
                     label="Artist"
-                    v-model="artist"
+                    v-model="song.artist"
                     ></v-text-field>
                     <v-text-field
                     type="text"
                     label="Genre"
-                    v-model="genre"
+                    v-model="song.genre"
                     ></v-text-field>
                     <v-text-field
                     type="text"
                     label="Album"
-                    v-model="album"
+                    v-model="song.album"
                     ></v-text-field>
                     <v-text-field
                     type="text"
                     label="Album Image URL"
-                    v-model="albumImageUrl"
+                    v-model="song.albumImageUrl"
                     ></v-text-field>
                     <v-text-field
                     type="text"
                     label="Youtube ID"
-                    v-model="youtubeId"
+                    v-model="song.youtubeId"
                     ></v-text-field>
                     </form>
                 </Panel>
@@ -43,17 +43,21 @@
                     multi-line
                     no-resize
                     label="Lyrics"
-                    v-model="lyrics"
+                    v-model="song.lyrics"
                     >
                     </v-textarea>
                     <v-textarea
                     multi-line
                     no-resize
                     label="Tab"
-                    v-model="tab"
+                    v-model="song.tab"
                     >
                     </v-textarea>
                 </Panel>
+
+                <v-btn dark color="cyan" @click="createSong">
+                    Create Song
+                </v-btn>
             </v-flex>
         </v-layout>
     </div>
@@ -67,28 +71,26 @@ export default {
   name: 'create-song',
   data () {
     return {
-      title: null,
-      artist: null,
-      genre: null,
-      album: null,
-      albumImageUrl: null,
-      youtubeId: null,
-      lyrics: null,
-      tab: null
+      song: {
+        title: null,
+        artist: null,
+        genre: null,
+        album: null,
+        albumImageUrl: null,
+        youtubeId: null,
+        lyrics: null,
+        tab: null
+      }
+
     }
   },
   methods: {
     async createSong () {
-      const response = await SongService.post({
-        title: this.title,
-        artist: this.artist,
-        genre: this.genre,
-        album: this.album,
-        albumImageUrl: this.albumImageUrl,
-        youtubeId: this.youtubeId,
-        lyrics: this.lyrics,
-        tab: this.tab
-      })
+      try {
+        await SongService.post(this.song)
+      } catch (err) {
+        console.log(err)
+      }
     }
   },
   components: {
