@@ -15,7 +15,7 @@
                 </v-icon>
             </v-btn>
           <div v-for="song in songs"
-            :key="songs.title">
+            :key="song.id">
 
             <v-layout class="song">
                 <v-flex xs6>
@@ -25,6 +25,16 @@
                   </div>
                   <div class="song-genre">{{song.genre}}
                   </div>
+
+                  <router-link :to="{ name: 'song-view', params: {songId: song.id}}">
+                  <v-btn
+                    dark
+                    class="cyan"
+                  >
+                    
+                    View Song
+                  </v-btn>
+                  </router-link>
                 </v-flex>
 
                 <v-flex xs6>
@@ -64,10 +74,12 @@ export default {
   padding: 20px;
   height: 330px;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .album-image {
   margin-left: 20px;
+
 }
 
 .song-title {
@@ -80,5 +92,6 @@ export default {
 
 .song-genre {
   font-size: 18px;
+  margin-bottom: 10px;
 }
 </style>
