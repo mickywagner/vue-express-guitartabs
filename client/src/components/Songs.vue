@@ -2,16 +2,25 @@
     <v-layout>
     <v-flex xs6 offset-xs3>
       <Panel title="Songs">
+            <v-btn
+            slot="action"
+            fab
+            class="cyan accent-2"
+            small
+            absolute
+            right
+            middle
+            to="/songs/create">
+                <v-icon>add
+                </v-icon>
+            </v-btn>
           <div v-for="song in songs"
             :key="songs.id">
             {{song.title}} -
             {{song.album}} -
             {{song.artist}}
-          </div>     
+          </div>    
       </Panel>
-        <v-btn to="/songs/create">
-            Create New Song
-        </v-btn>
     </v-flex>
   </v-layout>
 </template>
