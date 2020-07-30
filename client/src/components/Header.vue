@@ -1,11 +1,11 @@
 <template>
     <v-toolbar dark fixed class="cyan">
             <v-toolbar-title class="mr-4"
-            ><span @click="navigateTo({name: 'home'})"
+            ><v-btn text to="/"
                 class="logo"
             >
                 TabTracker
-            </span>
+            </v-btn>
             </v-toolbar-title>
         <v-toolbar-items>
             <v-btn text to="/songs">
@@ -58,9 +58,7 @@ header {
 
 .logo {
     cursor: pointer;
-}
-
-.logo:hover {
-    color: #006064;
+    text-transform: capitalize;
+    font-size: 1em;
 }
 </style>
