@@ -5,8 +5,18 @@
 </template>
 
 <script>
+import SongService from '@/services/SongService'
+
 export default {
-  name: 'ViewSong'
+  data () {
+    return {
+      song: null
+    }
+  },
+  async mounted () {
+    const songId = this.$store.state.route.params.songId
+    this.song = await SongService.show()
+  }
 }
 </script>
 
