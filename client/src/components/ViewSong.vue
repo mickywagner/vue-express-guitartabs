@@ -1,6 +1,7 @@
 <template>
+    <div>
     <v-layout>
-        <v-flex xs6>
+        <v-flex xs6 mr-2>
             <panel title="Song Metadata">
                 <v-layout class="song">
                     <v-flex xs6>
@@ -15,7 +16,7 @@
                         </div>
                     </v-flex>
                     <v-flex xs6 ml-4>
-                        <div>
+                        <div class="album-image">
                             <img :src="song.albumImage" />
                             {{song.album}}
                         </div>
@@ -23,7 +24,38 @@
                 </v-layout>
             </panel>
         </v-flex>
+
+        <v-flex xs6>
+            <panel title="Tabs">
+                <v-textarea
+                    class="song"
+                    readonly
+                    no-resize
+                    v-model="song.tab"
+                >
+                </v-textarea>
+            </panel>
+        </v-flex>
     </v-layout>
+    <v-layout>
+        <v-flex xs6 mt-4 mr-2>
+            <panel title="Youtube Video">
+                <video>
+                    <source :src="song.youtubeId" type="mp4">
+                </video>
+            </panel>
+        </v-flex>
+        <v-flex xs6 mt-4>
+            <panel title="Lyrics">
+                <v-textarea
+                    readonly
+                    v-model="song.lyrics"
+                >
+                </v-textarea>
+            </panel>
+        </v-flex>
+    </v-layout>
+    </div>
 </template>
 
 <script>
@@ -52,8 +84,8 @@ export default {
   overflow: hidden;
 }
 
-.album-image {
-  margin-left: 20px;
+.album-image img {
+    width: 100%;
 }
 
 .song-title {
@@ -67,6 +99,19 @@ export default {
 .song-genre {
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+    font-family:'Courier New', Courier, monospace;
+    border: none;
+    border-style: none;
+    border-color: transparent;
+    padding: 20px;
+}
+
+textarea:focus {
+    outline: none;
 }
 
 </style>
