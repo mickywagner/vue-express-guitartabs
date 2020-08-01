@@ -1,6 +1,6 @@
 <template>
     <div>
-        View Song
+       <h1>{{this.song}}</h1>
     </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   },
   async mounted () {
     const songId = this.$store.state.route.params.songId
-    this.song = await SongService.show()
+    this.song = await SongService.show(songId)
   }
 }
 </script>

@@ -26,5 +26,16 @@ module.exports = {
                 error: 'An error occurred while creating song'
             })
         }
+    },
+
+    async show (req, res) {
+        try {
+            const song = await Song.findOne({ where: {id: req.params.songId}})
+            res.send(song)
+        } catch (error) {
+            res.status(500).send({
+                message: 'Error occurred when fetching song'
+            })
+        }
     }
 }
