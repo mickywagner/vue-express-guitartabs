@@ -46,6 +46,7 @@ module.exports = {
                     id: req.params.songId
                 }
             })
+            res.send(this.body)
         } catch (err) {
             res.status(500).send({
                 message: 'Error occured while trying to save song'

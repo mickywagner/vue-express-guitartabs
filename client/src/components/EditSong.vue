@@ -94,7 +94,6 @@ export default {
   },
   methods: {
     async save () {
-      const songId = this.$store.state.route.params.songId
       this.error = null
       const fieldsFilledIn = Object
         .keys(this.song)
@@ -106,12 +105,7 @@ export default {
 
       try {
         await SongService.put(this.song)
-        this.$router.push({
-          name: 'song',
-          params: {
-            songId: songId
-          }
-        })
+        this.$router.go(-1)
       } catch (err) {
         console.log(err)
       }

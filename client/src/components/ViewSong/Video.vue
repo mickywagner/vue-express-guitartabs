@@ -1,8 +1,8 @@
 <template>
     <panel title="Youtube Video">
-        <div class="video">
+        <div>
           <youtube
-            :video-id="youtubeId"
+            :video-id="song.youtubeId"
             :player-width="350"
             :player-height="300"
           >
@@ -17,7 +17,7 @@ import Panel from '@/components/Panel'
 export default {
   name: 'Video',
   props: [
-    'youtubeId'
+    'song'
   ],
   components: {
     Panel
@@ -26,8 +26,5 @@ export default {
 </script>
 
 <style scoped>
-.video {
-  width: 100%;
-}
 
 </style>

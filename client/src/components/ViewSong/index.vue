@@ -5,7 +5,7 @@
         <SongMetadata :song="song" />
       </v-flex>
       <v-flex xs6>
-          <Video :youtubeId="song.youtubeId" />
+          <Video :song="song" />
       </v-flex>
     </v-layout>
     <v-layout>
