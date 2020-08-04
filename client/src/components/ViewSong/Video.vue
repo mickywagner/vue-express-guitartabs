@@ -4,6 +4,7 @@
           <youtube
             :video-id="youtubeId"
             :player-width="350"
+            :player-height="300"
           >
           </youtube>
         </div>

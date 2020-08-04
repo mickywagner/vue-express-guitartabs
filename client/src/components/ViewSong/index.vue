@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-layout>
+    <v-layout fill-height>
       <v-flex xs6 mr-2>
         <SongMetadata :song="song" />
       </v-flex>
@@ -10,16 +10,10 @@
     </v-layout>
     <v-layout>
       <v-flex xs6 id="tabs" mt-4 mr-2>
-       <panel title="Tabs">
-          <v-textarea class="song" readonly no-resize v-model="song.tab">
-          </v-textarea>
-        </panel>
+        <Tabs :tabs="song.tab"/>
       </v-flex>
       <v-flex xs6 mt-4>
-        <panel title="Lyrics">
-          <v-textarea class="song" readonly no-resize v-model="song.lyrics">
-          </v-textarea>
-        </panel>
+        <Lyrics :lyrics="song.lyrics"/>
       </v-flex>
     </v-layout>
   </div>
@@ -27,9 +21,11 @@
 
 <script>
 import SongService from '@/services/SongService'
-import Panel from '@/components/Panel'
+
 import SongMetadata from './SongMetadata'
 import Video from './Video'
+import Lyrics from './Lyrics'
+import Tabs from './Tabs'
 
 export default {
   data () {
@@ -42,7 +38,8 @@ export default {
     this.song = (await SongService.show(songId)).data
   },
   components: {
-    Panel,
+    Tabs,
+    Lyrics,
     SongMetadata,
     Video
   }
@@ -50,15 +47,5 @@ export default {
 </script>
 
 <style scoped>
-textarea {
-  font-family: "Courier New", Courier, monospace;
-  border: none;
-  border-style: none;
-  border-color: transparent;
-  padding: 20px;
-}
 
-textarea:focus {
-  outline: none;
-}
 </style>

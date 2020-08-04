@@ -1,6 +1,6 @@
 <template>
     <Panel title="Song Metadata">
-      <v-layout class="song">
+      <v-layout>
         <v-flex xs6>
           <div class="song-title">
             {{ song.title }}
@@ -37,10 +37,6 @@ export default {
 </script>
 
 <style scoped>
-.song {
-  padding: 10px;
-  overflow: hidden;
-}
 
 .song-title {
   font-size: 30px;

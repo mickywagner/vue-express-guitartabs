@@ -1,6 +1,6 @@
 <template>
     <v-layout>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs8 offset-xs2> 
       <Panel title="Songs">
             <v-btn
             slot="action"
@@ -18,7 +18,7 @@
             :key="song.id">
 
             <v-layout class="song">
-                <v-flex xs6>
+                <v-flex xs8>
                   <div class="song-title">{{song.title}}
                   </div>
                   <div class="song-artist">{{song.artist}}
