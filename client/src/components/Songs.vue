@@ -1,6 +1,6 @@
 <template>
     <v-layout>
-    <v-flex xs8 offset-xs2> 
+    <v-flex xs8 offset-xs2>
       <Panel title="Songs">
             <v-btn
             slot="action"
@@ -31,7 +31,7 @@
                     dark
                     class="cyan"
                   >
-                    
+
                     View Song
                   </v-btn>
                   </router-link>

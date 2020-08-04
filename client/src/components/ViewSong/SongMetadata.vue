@@ -11,6 +11,14 @@
           <div class="song-genre">
             {{ song.genre }}
           </div>
+          <router-link :to="{ name: 'song-edit', params: {songId: song.id}}">
+            <v-btn
+              id="btn"
+              class="cyan"
+              :song="song"
+              >Edit Song
+              </v-btn>
+          </router-link>
         </v-flex>
         <v-flex xs6 ml-4>
           <div class="album-image">
