@@ -62,7 +62,7 @@
                 <div class="danger-alert" v-if="error">
                   {{ error }}
                 </div>
-                <v-btn dark color="cyan" @click="createSong">
+                <v-btn dark color="cyan" @click="save">
                     Save Song
                 </v-btn>
             </v-flex>
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     async save () {
-      const songId = this.$store.state.params.songId
+      const songId = this.$store.state.route.params.songId
       this.error = null
       const fieldsFilledIn = Object
         .keys(this.song)
@@ -107,7 +107,7 @@ export default {
       try {
         await SongService.put(this.song)
         this.$router.push({
-          name: 'songs',
+          name: 'song',
           params: {
             songId: songId
           }
@@ -121,7 +121,6 @@ export default {
     try {
       const songId = this.$store.state.route.params.songId
       this.song = (await SongService.show(songId)).data
-      console.log(this.song)
     } catch (err) {
       console.log(err)
     }
