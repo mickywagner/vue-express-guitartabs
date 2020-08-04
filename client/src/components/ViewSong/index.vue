@@ -1,12 +1,12 @@
 <template>
   <div>
-    <v-layout fill-height>
+    <v-layout justify-center fill-height>
       <v-flex xs6 mr-2>
         <SongMetadata :song="song" />
       </v-flex>
-        <v-flex xs6>
+      <v-flex xs6>
           <Video :youtubeId="song.youtubeId" />
-        </v-flex>
+      </v-flex>
     </v-layout>
     <v-layout>
       <v-flex xs6 id="tabs" mt-4 mr-2>
