@@ -58,7 +58,7 @@ export default {
     }
   },
   components: {
-    Panel,
+    Panel
   }
 }
 </script>

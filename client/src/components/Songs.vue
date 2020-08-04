@@ -71,7 +71,6 @@ export default {
 <style scoped>
 .song {
   padding: 20px;
-  height: 330px;
   overflow: hidden;
   margin-bottom: 10px;
 }

@@ -4,19 +4,15 @@
       <v-flex xs6 mr-2>
         <SongMetadata :song="song" />
       </v-flex>
-      <v-flex xs6 id="tabs">
-        <panel title="Tabs">
-          <v-textarea class="song" readonly no-resize v-model="song.tab">
-          </v-textarea>
-        </panel>
-      </v-flex>
+        <v-flex xs6>
+          <Video :youtubeId="song.youtubeId" />
+        </v-flex>
     </v-layout>
     <v-layout>
-      <v-flex xs6 mt-4 mr-2>
-        <panel title="Youtube Video">
-          <video>
-            <source :src="song.youtubeId" type="mp4" />
-          </video>
+      <v-flex xs6 id="tabs" mt-4 mr-2>
+       <panel title="Tabs">
+          <v-textarea class="song" readonly no-resize v-model="song.tab">
+          </v-textarea>
         </panel>
       </v-flex>
       <v-flex xs6 mt-4>
@@ -33,6 +29,7 @@
 import SongService from '@/services/SongService'
 import Panel from '@/components/Panel'
 import SongMetadata from './SongMetadata'
+import Video from './Video'
 
 export default {
   data () {
@@ -46,7 +43,8 @@ export default {
   },
   components: {
     Panel,
-    SongMetadata
+    SongMetadata,
+    Video
   }
 }
 </script>

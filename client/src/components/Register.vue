@@ -55,9 +55,9 @@ export default {
         this.error = error.response.data.error
       }
     }
-  }, 
+  },
   components: {
-    Panel,
+    Panel
   }
 }
 </script>
