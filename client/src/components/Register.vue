@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex xs6 offset-xs3>
       <basic-panel title="Register">
-        <div v-html="error" class="error" />
+        <div v-html="error" class="danger" />
           <br />
           <form>
             <v-text-field

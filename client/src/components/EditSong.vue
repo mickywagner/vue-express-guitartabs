@@ -59,7 +59,7 @@
                     >
                     </v-textarea>
                 </basic-panel>
-                <div class="danger-alert" v-if="error">
+                <div class="danger" v-if="error">
                   {{ error }}
                 </div>
                 <v-btn dark color="cyan" @click="save">
@@ -126,7 +126,4 @@ export default {
 </script>
 
 <style scoped>
-.danger-alert {
-  color: red;
-}
 </style>

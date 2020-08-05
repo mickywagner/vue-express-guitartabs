@@ -3,7 +3,7 @@
     <v-flex xs6 offset-xs3>
       <basic-panel title="Login">
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <div v-html="error" class="error" />
+          <div v-html="error" class="danger" />
           <br />
           <form>
             <v-text-field
@@ -64,5 +64,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
