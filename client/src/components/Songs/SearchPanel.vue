@@ -12,6 +12,7 @@
 
 <script>
 import BasicPanel from '@/components/BasicPanel'
+import _ from 'lodash'
 
 export default {
   name: 'SearchPanel',
@@ -24,7 +25,7 @@ export default {
     }
   },
   watch: {
-    search (val) {
+    search: _.debounce(async function (value) {
       const route = {
         name: 'songs'
       }
@@ -34,7 +35,7 @@ export default {
         }
       }
       this.$router.push(route)
-    },
+    }, 700),
     '$route.query.search': {
       immediate: true,
       handler (value) {
