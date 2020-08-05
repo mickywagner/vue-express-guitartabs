@@ -1,5 +1,5 @@
 <template>
-    <Panel title="Song Metadata">
+    <panel title="Song Metadata">
       <v-layout>
         <v-flex xs6>
           <div class="song-title">
@@ -27,7 +27,7 @@
           </div>
         </v-flex>
       </v-layout>
-    </Panel>
+    </panel>
 </template>
 
 <script>

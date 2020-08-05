@@ -1,7 +1,7 @@
 <template>
     <v-layout>
     <v-flex xs6 offset-xs3>
-      <Panel title="Login">
+      <panel title="Login">
         <div class="pl-4 pr-4 pt-2 pb-2">
           <div v-html="error" class="error" />
           <br />
@@ -24,7 +24,7 @@
             </v-btn>
           </form>
         </div>
-      </Panel>
+      </panel>
     </v-flex>
   </v-layout>
 </template>

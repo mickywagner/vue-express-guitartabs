@@ -1,7 +1,7 @@
 <template>
   <v-layout>
     <v-flex xs6 offset-xs3>
-      <Panel title="Register">
+      <panel title="Register">
         <div v-html="error" class="error" />
           <br />
           <form>
@@ -24,7 +24,7 @@
               Register
             </v-btn>
           </form>
-      </Panel>
+      </panel>
     </v-flex>
   </v-layout>
 </template>
