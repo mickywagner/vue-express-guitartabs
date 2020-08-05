@@ -1,5 +1,5 @@
 <template>
-  <Panel title="Songs">
+  <basic-panel title="Songs">
     <v-btn
       slot="action"
       fab
@@ -36,17 +36,17 @@
         </v-flex>
       </v-layout>
     </div>
-  </Panel>
+  </basic-panel>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
+import BasicPanel from '@/components/BasicPanel'
 import SongService from '@/services/SongService'
 
 export default {
   name: 'Songs',
   components: {
-    Panel
+    'basic-panel': BasicPanel
   },
   data () {
     return {

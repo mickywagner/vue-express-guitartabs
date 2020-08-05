@@ -1,12 +1,12 @@
 <template>
-    <panel title="Lyrics">
+    <basic-panel title="Lyrics">
         <v-textarea class="song" readonly no-resize v-model="lyrics">
         </v-textarea>
-    </panel>
+    </basic-panel>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
+import BasicPanel from '@/components/BasicPanel'
 
 export default {
   name: 'Lyrics',
@@ -14,7 +14,7 @@ export default {
     'lyrics'
   ],
   components: {
-    Panel
+    'basic-panel': BasicPanel
   }
 
 }

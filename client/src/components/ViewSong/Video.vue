@@ -1,5 +1,5 @@
 <template>
-    <panel title="Youtube Video">
+    <basic-panel title="Youtube Video">
         <div>
           <youtube
             :video-id="song.youtubeId"
@@ -8,11 +8,11 @@
           >
           </youtube>
         </div>
-    </panel>
+    </basic-panel>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
+import BasicPanel from '@/components/BasicPanel'
 
 export default {
   name: 'Video',
@@ -20,7 +20,7 @@ export default {
     'song'
   ],
   components: {
-    Panel
+    'basic-panel': BasicPanel
   }
 }
 </script>

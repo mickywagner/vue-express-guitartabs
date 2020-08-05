@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'Panel',
+  name: 'BasicPanel',
   props: [
     'title'
   ]

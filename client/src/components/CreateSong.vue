@@ -2,7 +2,7 @@
     <div>
         <v-layout>
             <v-flex xs5>
-                <Panel title="Song MetaData">
+                <basic-panel title="Song MetaData">
                     <v-text-field
                     required
                     label="Title"
@@ -38,10 +38,10 @@
                     label="Youtube ID"
                     v-model="song.youtubeId"
                     ></v-text-field>
-                </Panel>
+                </basic-panel>
             </v-flex>
             <v-flex xs7 ml-4>
-                <Panel title="Song Structure">
+                <basic-panel title="Song Structure">
                     <v-textarea
                     multi-line
                     :rules="[required]"
@@ -58,7 +58,7 @@
                     v-model="song.tab"
                     >
                     </v-textarea>
-                </Panel>
+                </basic-panel>
                 <div class="danger-alert" v-if="error">
                   {{ error }}
                 </div>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
+import BasicPanel from '@/components/BasicPanel'
 import SongService from '@/services/SongService'
 
 export default {
@@ -111,7 +111,7 @@ export default {
     }
   },
   components: {
-    Panel
+    'basic-panel': BasicPanel
   }
 }
 </script>

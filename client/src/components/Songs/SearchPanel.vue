@@ -1,5 +1,5 @@
 <template>
-    <panel title="Search">
+    <basic-panel title="Search">
         <form>
            <v-text-field
             label="Search by song title, artist, album, or genre"
@@ -7,16 +7,16 @@
            >
            </v-text-field>
         </form>
-    </panel>
+    </basic-panel>
 </template>
 
 <script>
-import Panel from '@/components/panel'
+import BasicPanel from '@/components/BasicPanel'
 
 export default {
   name: 'SearchPanel',
   components: {
-    Panel
+    'basic-panel': BasicPanel
   },
   data () {
     return {

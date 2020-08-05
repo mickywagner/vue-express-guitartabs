@@ -1,7 +1,7 @@
 <template>
     <v-layout>
     <v-flex xs6 offset-xs3>
-      <panel title="Login">
+      <basic-panel title="Login">
         <div class="pl-4 pr-4 pt-2 pb-2">
           <div v-html="error" class="error" />
           <br />
@@ -24,14 +24,14 @@
             </v-btn>
           </form>
         </div>
-      </panel>
+      </basic-panel>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
+import BasicPanel from '@/components/BasicPanel'
 
 export default {
   name: 'Login',
@@ -58,7 +58,7 @@ export default {
     }
   },
   components: {
-    Panel
+    'basic-panel': BasicPanel
   }
 }
 </script>
