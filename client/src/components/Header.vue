@@ -1,7 +1,7 @@
 <template>
     <v-toolbar dark fixed class="cyan">
             <v-toolbar-title class="mr-4"
-            ><v-btn text to="/"
+            ><v-btn text to="/songs"
                 class="logo"
             >
                 TabTracker
@@ -45,6 +45,7 @@ export default {
   methods: {
     logout () {
       this.$store.dispatch('logOut')
+      this.$router.push({name: 'songs'})
     }
   }
 }
