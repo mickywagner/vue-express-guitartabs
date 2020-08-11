@@ -62,7 +62,7 @@
                 <div class="danger" v-if="error">
                   {{ error }}
                 </div>
-                <v-btn dark color="cyan" @click="save">
+                <v-btn id="btn" dark color="cyan" @click="save">
                     Save Song
                 </v-btn>
             </v-flex>
@@ -126,4 +126,7 @@ export default {
 </script>
 
 <style scoped>
+#btn {
+  margin-top: 15px;
+}
 </style>
