@@ -74,10 +74,11 @@ export default {
     }
     try {
       const bookmark = (await BookmarkService.index({
-        songId: this.song.id,
+        songId: this.$route.params.songId,
         userId: this.$store.state.user.id
       })).data
-      bookmark.id === undefined ? this.isBookmarked = false : this.isBookmarked = true
+      console.log(bookmark.id)
+      // bookmark.id !== undefined ? this.isBookmarked = true : this.isBookmarked = false
     } catch (err) {
       console.log(err)
     }
@@ -89,7 +90,6 @@ export default {
           songId: this.song.id,
           userId: this.$store.state.user.id
         })
-        this.isBookmarked = !this.isBookmarked
       } catch (err) {
         console.log(err)
       }

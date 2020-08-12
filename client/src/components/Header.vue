@@ -29,7 +29,7 @@
                     </v-btn>
         </v-toolbar-items>
         <v-toolbar-items>
-                    <v-btn text to="/"
+                    <v-btn text
                         v-if="$store.state.isUserLoggedIn"
                         @click="logout"
                     >

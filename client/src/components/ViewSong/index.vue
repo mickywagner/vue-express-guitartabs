@@ -30,7 +30,16 @@ import Tabs from './Tabs'
 export default {
   data () {
     return {
-      song: null
+      song: {
+        artist: null,
+        genre: null,
+        title: null,
+        album: null,
+        albumImage: null,
+        youtubeId: null,
+        lyrics: null,
+        tab: null
+      }
     }
   },
   async mounted () {

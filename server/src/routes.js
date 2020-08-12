@@ -23,4 +23,6 @@ module.exports = (app) => {
     app.get('/users', userController.index),
 
     app.get('/bookmarks', bookmarksControlller.index)
+    app.post('/bookmarks', bookmarksControlller.post)
+    app.delete('/bookmark/:bookmarkId', bookmarksControlller.delete)
 }
