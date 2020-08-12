@@ -24,11 +24,18 @@
                   Edit
               </v-btn>
               <v-btn
-                v-if="isUserLoggedIn"
+                v-if="isUserLoggedIn && !isBookmarked"
                 dark
                 class="cyan"
                 @click="setAsBookmark"
-                >{{bookmarked ? "Unbookmark" : "Bookmark"}}
+                >Bookmark
+                </v-btn>
+              <v-btn
+                v-if="isUserLoggedIn && isBookmarked"
+                dark
+                class="cyan"
+                @click="unbookmark"
+                >Remove Bookmark
                 </v-btn>
         </v-flex>
         <v-flex xs6 ml-4>
@@ -44,6 +51,7 @@
 <script>
 import BasicPanel from '@/components/BasicPanel'
 import {mapState} from 'vuex'
+import BookmarkService from '@/services/BookmarkService'
 
 export default {
   name: 'SongMetaData',
@@ -52,7 +60,7 @@ export default {
   ],
   data () {
     return {
-      bookmarked: true
+      isBookmarked: false
     }
   },
   computed: {
@@ -60,12 +68,20 @@ export default {
       'isUserLoggedIn'
     ])
   },
+  async mounted () {
+    const bookmark = (await BookmarkService.index({
+      songId: 1,
+      userId: 10
+    })).data
+    console.log('bookmark', bookmark)
+    bookmark.id === undefined ? this.isBookmarked = false : this.isBookmarked = true
+  },
   methods: {
     setAsBookmark () {
-      this.bookmarked = !this.bookmarked
+      this.isBookmarked = !this.isBookmarked
     },
     unbookmark () {
-      this.bookmarked = !this.bookmarked
+      this.isBookmarked = !this.isBookmarked
     }
   },
   components: {

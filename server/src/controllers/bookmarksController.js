@@ -11,7 +11,7 @@ module.exports = {
           UserId: userId
         }
       })
-      res.send(bookmark)
+      res.send(bookmark || null)
     } catch (error) {
       res.status(500).send({
         message: "An error occured while fetching bookmark",
