@@ -1,6 +1,6 @@
 <template>
     <basic-panel title="Lyrics">
-        <v-textarea class="song" readonly no-resize v-model="lyrics">
+        <v-textarea class="song" readonly no-resize v-model="song.lyrics">
         </v-textarea>
     </basic-panel>
 </template>
@@ -11,7 +11,7 @@ import BasicPanel from '@/components/BasicPanel'
 export default {
   name: 'Lyrics',
   props: [
-    'lyrics'
+    'song'
   ],
   components: {
     'basic-panel': BasicPanel

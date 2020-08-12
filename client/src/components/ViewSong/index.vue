@@ -10,10 +10,10 @@
     </v-layout>
     <v-layout>
       <v-flex xs6 id="tabs" mt-4 mr-2>
-        <Tabs :tabs="song.tab"/>
+        <Tabs :song="song"/>
       </v-flex>
       <v-flex xs6 mt-4>
-        <Lyrics :lyrics="song.lyrics"/>
+        <Lyrics :song="song"/>
       </v-flex>
     </v-layout>
   </div>
