@@ -70,10 +70,9 @@ export default {
   },
   async mounted () {
     const bookmark = (await BookmarkService.index({
-      songId: 1,
-      userId: 10
+      songId: this.song.id,
+      userId: this.$store.state.user.id
     })).data
-    console.log('bookmark', bookmark)
     bookmark.id === undefined ? this.isBookmarked = false : this.isBookmarked = true
   },
   methods: {
