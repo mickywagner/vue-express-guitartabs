@@ -24,14 +24,14 @@
                   Edit
               </v-btn>
               <v-btn
-                v-if="isUserLoggedIn && !isBookmarked"
+                v-if="isUserLoggedIn && !bookmark"
                 dark
                 class="cyan"
                 @click="setAsBookmark"
                 >Bookmark
                 </v-btn>
               <v-btn
-                v-if="isUserLoggedIn && isBookmarked"
+                v-if="isUserLoggedIn && bookmark"
                 dark
                 class="cyan"
                 @click="unbookmark"
@@ -60,7 +60,7 @@ export default {
   ],
   data () {
     return {
-      isBookmarked: false
+      bookmark: null
     }
   },
   computed: {
@@ -73,12 +73,10 @@ export default {
       return
     }
     try {
-      const bookmark = (await BookmarkService.index({
+      this.bookmark = (await BookmarkService.index({
         songId: this.$route.params.songId,
         userId: this.$store.state.user.id
       })).data
-      console.log(bookmark.id)
-      // bookmark.id !== undefined ? this.isBookmarked = true : this.isBookmarked = false
     } catch (err) {
       console.log(err)
     }
@@ -86,20 +84,18 @@ export default {
   methods: {
     async setAsBookmark () {
       try {
-        await BookmarkService.post({
+        this.bookmark = (await BookmarkService.post({
           songId: this.song.id,
           userId: this.$store.state.user.id
-        })
+        })).data
       } catch (err) {
         console.log(err)
       }
     },
     async unbookmark () {
       try {
-        await BookmarkService.delete({
-          songId: this.song.id,
-          userId: this.$store.state.user.id
-        })
+        await BookmarkService.delete(this.bookmark.id)
+        this.bookmark = null
       } catch (err) {
         console.log(err)
       }

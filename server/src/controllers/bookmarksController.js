@@ -52,9 +52,16 @@ module.exports = {
   async delete(req, res) {
     try {
       const {bookmarkId} = req.params
-      const bookmark = await Bookmark.findById(bookmarkId)
+    
+      const bookmark = await Bookmark.findOne({
+        where: {
+          id: bookmarkId
+        }
+      })
       await bookmark.destroy()
-      res.send(bookmark)
+      res.status(200).send({
+        message: "Bookmark deleted"
+      })
     } catch (err) {
       res.status(500).send({
         message: "Error deleting bookmark"
