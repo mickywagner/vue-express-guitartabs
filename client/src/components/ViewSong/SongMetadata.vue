@@ -11,14 +11,25 @@
           <div class="song-genre">
             {{ song.genre }}
           </div>
-          <router-link :to="{ name: 'song-edit', params: {songId: song.id}}">
-            <v-btn
-              id="btn"
-              class="cyan"
-              :song="song"
-              >Edit Song
+              <v-btn
+                dark
+                class="cyan"
+                :to="{
+                  name: 'song-edit',
+                  params () {
+                    return {
+                      songId: song.id
+                    }
+                  }}">
+                  Edit
               </v-btn>
-          </router-link>
+              <v-btn
+                v-if="isUserLoggedIn"
+                dark
+                class="cyan"
+                @click="setAsBookmark"
+                >{{bookmarked ? "Unbookmark" : "Bookmark"}}
+                </v-btn>
         </v-flex>
         <v-flex xs6 ml-4>
           <div class="album-image">
@@ -32,12 +43,31 @@
 
 <script>
 import BasicPanel from '@/components/BasicPanel'
+import {mapState} from 'vuex'
 
 export default {
   name: 'SongMetaData',
   props: [
     'song'
   ],
+  data () {
+    return {
+      bookmarked: true
+    }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn'
+    ])
+  },
+  methods: {
+    setAsBookmark () {
+      this.bookmarked = !this.bookmarked
+    },
+    unbookmark () {
+      this.bookmarked = !this.bookmarked
+    }
+  },
   components: {
     'basic-panel': BasicPanel
   }
@@ -65,6 +95,10 @@ export default {
 
 .album-image img {
   width: 100%;
+}
+
+button {
+  margin: 5px;
 }
 
 </style>
