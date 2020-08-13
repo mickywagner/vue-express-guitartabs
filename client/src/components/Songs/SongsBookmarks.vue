@@ -2,7 +2,6 @@
     <basic-panel title="Bookmarks">
         <v-data-table
             :headers="headers"
-            :pagination.sync="pagination"
             :items="bookmarks"
         >
         <template slot="items" scope="props">
@@ -20,9 +19,23 @@
 <script>
 import BasicPanel from '@/components/BasicPanel'
 import BookmarkService from '@/services/BookmarkService'
+import {mapState} from 'vuex'
 
 export default {
   name: 'SongsBookmarks',
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
+  async mounted () {
+    if (this.isUserLoggedIn) {
+      this.bookmarks = (await BookmarkService.index({
+        userId: this.user.id
+      })).data
+    }
+  },
   data () {
     return {
       headers: [
@@ -39,16 +52,7 @@ export default {
         sortBy: 'date',
         descending: true
       },
-      bookmarks: [
-        {
-          title: 'Oops I Did It Again',
-          artist: 'Britney Spears'
-        },
-        {
-          title: 'Singing in the Rain',
-          artist: 'Frank Sinatra'
-        }
-      ]
+      bookmarks: []
     }
   },
   components: {

@@ -1,17 +1,36 @@
-const { Bookmark, Sequelize } = require("../models");
-const Op = Sequelize.Op
+const { 
+  Bookmark,
+  Song,  
+} = require("../models");
+const _ = require('lodash')
 
 module.exports = {
   async index(req, res) {
     try {
       const {songId, userId} = req.query
-      const bookmark = await Bookmark.findOne({
-        where: {
-          SongId: songId,
-          UserId: userId
-        }
+      const where = {
+        UserId: userId
+      }
+      if (songId) {
+        where.SongId = songId
+      }
+
+      const bookmarks = await Bookmark.findAll({
+        where: where,
+        include: [
+          {
+            model: Song
+          }
+        ]
       })
-      return res.send(bookmark || null)
+
+      const mapped = bookmarks.map(bookmark => bookmark.toJSON()).map(bookmark => _.extend(
+        {},
+        bookmark.Song,
+        bookmark
+      ))
+
+      res.send(mapped)
     } catch (error) {
       res.status(500).send({
         message: "An error occured while fetching bookmark",
