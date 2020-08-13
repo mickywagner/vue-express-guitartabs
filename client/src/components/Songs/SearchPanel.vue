@@ -1,5 +1,5 @@
 <template>
-    <basic-panel title="Search">
+    <basic-panel title="Search" id="search">
         <form>
            <v-text-field
             label="Search by song title, artist, album, or genre"
@@ -47,5 +47,7 @@ export default {
 </script>
 
 <style scoped>
-
+#search {
+  margin-bottom: 10px;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <basic-panel title="Songs">
+  <basic-panel title="Songs"> 
     <v-btn
       slot="action"
       fab

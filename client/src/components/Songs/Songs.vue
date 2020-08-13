@@ -1,9 +1,9 @@
 <template>
     <v-layout>
-    <v-flex xs4 mr-2>
-      <search-panel />
+    <v-flex xs4>
     </v-flex>
     <v-flex xs8>
+      <search-panel />
       <songs-panel />
     </v-flex>
   </v-layout>
