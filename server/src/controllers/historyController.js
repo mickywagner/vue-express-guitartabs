@@ -26,7 +26,7 @@ module.exports = {
                 history
             ))
 
-            res.send(mappedHistory)
+            res.send(_.uniqBy(mappedHistory, item => item.SongId))
         } catch (err) {
             res.status(500).send({
                 message: 'Failed to fetch history'
