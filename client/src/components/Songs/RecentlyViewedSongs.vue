@@ -2,7 +2,7 @@
     <basic-panel title="Recently Viewed Songs" id="recent">
         <v-data-table
             :headers="headers"
-            :items="songs"
+            :items="history"
         >
         <template slot="items" scope="props">
             <td class="text-xs-right">
@@ -42,16 +42,14 @@ export default {
           value: 'artist'
         }
       ],
-      pagination: {
-        sortBy: 'date',
-        descending: true
-      },
-      songs: []
+      sortBy: 'date',
+      sortDesc: false,
+      history: []
     }
   },
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.songs = (await SongHistoryService.index({
+      this.history = (await SongHistoryService.index({
         userId: this.user.id
       })).data
     }
