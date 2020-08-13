@@ -1,8 +1,8 @@
 <template>
-    <basic-panel title="Recently Viewed" id="recent">
+    <basic-panel title="Recently Viewed Songs" id="recent">
         <v-data-table
             :headers="headers"
-            :items="bookmarks"
+            :items="songs"
         >
         <template slot="items" scope="props">
             <td class="text-xs-right">
@@ -18,6 +18,8 @@
 
 <script>
 import BasicPanel from '@/components/BasicPanel'
+import SongHistoryService from '@/services/SongHistoryService'
+
 import {mapState} from 'vuex'
 
 export default {
@@ -27,6 +29,32 @@ export default {
       'isUserLoggedIn',
       'user'
     ])
+  },
+  data () {
+    return {
+      headers: [
+        {
+          text: 'Title',
+          value: 'title'
+        },
+        {
+          text: 'Artist',
+          value: 'artist'
+        }
+      ],
+      pagination: {
+        sortBy: 'date',
+        descending: true
+      },
+      songs: []
+    }
+  },
+  async mounted () {
+    if (this.isUserLoggedIn) {
+      this.songs = (await SongHistoryService.index({
+        userId: this.user.id
+      })).data
+    }
   },
   components: {
     BasicPanel
