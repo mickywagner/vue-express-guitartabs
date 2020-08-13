@@ -28,6 +28,6 @@ module.exports = (app) => {
     app.post('/bookmarks', IsAuthenticated, bookmarksControlller.post)
     app.delete('/bookmarks/:bookmarkId', IsAuthenticated, bookmarksControlller.delete),
 
-    app.get('/histories', historyController.index),
-    app.post('/histories', historyController.post)
+    app.get('/histories', IsAuthenticated, historyController.index),
+    app.post('/histories', IsAuthenticated, historyController.post)
 }

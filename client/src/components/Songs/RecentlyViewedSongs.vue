@@ -49,9 +49,7 @@ export default {
   },
   async mounted () {
     if (this.isUserLoggedIn) {
-      this.history = (await SongHistoryService.index({
-        userId: this.user.id
-      })).data
+      this.history = (await SongHistoryService.index()).data
     }
   },
   components: {
