@@ -1,7 +1,8 @@
 <template>
     <v-layout>
     <v-flex xs5 mr-5>
-      <songs-bookmarks />
+      <songs-bookmarks/>
+      <recently-viewed-songs />
     </v-flex>
     <v-flex xs7>
       <search-panel />
@@ -14,13 +15,15 @@
 import SongsPanel from './SongsPanel'
 import SearchPanel from './SearchPanel'
 import SongsBookmarks from './SongsBookmarks'
+import RecentlyViewedSongs from './RecentlyViewedSongs'
 
 export default {
   name: 'Songs',
   components: {
     SongsPanel,
     SearchPanel,
-    SongsBookmarks
+    SongsBookmarks,
+    RecentlyViewedSongs
   }
 }
 
